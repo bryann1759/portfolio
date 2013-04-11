@@ -89,25 +89,6 @@ textarea {
     padding: 0.2em 0;
 }
 
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* ==========================================================================
    Helper classes
@@ -297,4 +278,39 @@ textarea {
     h3 {
         page-break-after: avoid;
     }
+}
+
+/* layout */
+
+#main {
+    width: 960px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Nav */
+
+nav {
+    position: fixed;
+    top: 0; right: 0;
+    width: 100%;
+}
+
+nav .navContent {
+    width: 960px;
+    text-align: right;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+nav ul{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    float: right;
+
+}
+
+nav li {
+    float: left;
 }
