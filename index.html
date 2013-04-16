@@ -13,6 +13,7 @@
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/layout.css">
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
@@ -22,10 +23,10 @@
 
         <div id="main">
             <header>
-                    Header
+                    <h1>Bryann Le Moigne</h1>
             </header>
             <nav>
-                <div class="navContent">
+                <div class="inner">
                     <ul>
                         <li><a href="#showcase">A propos</a></li>
                         <li><a href="#projets">Projets</a></li>
@@ -36,19 +37,15 @@
             </nav>
             <section id="showcase">
                 <h1>Bla</h1>
-                    <a href=""></a>
                     <ul>
                         <li>
-                            <img src="" alt=""/>
-                            <p>bla bla bla bla</p>
+                            <article><img src="" alt=""/> <p>bla bla bla</p></article>
                         </li>
                         <li>
-                            <img src="" alt=""/>
-                            <p>bla bla bla bla</p>
+                            <article><img src="" alt=""/> <p>bla bla bla</p></article>
                         </li>
                         <li>
-                            <img src="" alt=""/>
-                            <p>bla bla bla bla</p>
+                            <article><img src="" alt=""/> <p>bla bla bla</p></article>
                         </li>
                     </ul>
             </section>
@@ -101,23 +98,28 @@
                         <label for="message">Votre message</label>
                         <textarea name="message" id="message" cols="30" rows="10" placeholder="Votre message"></textarea>
                     </div>
+                    <div>
+                        <button type="submit">Envoyer</button>
+                    </div>
                 </form>
             </section>
-
-            <footer>
+        </div>
+        <footer>
+            <div class="inner">
                 <ul>
                     <li><a href="#showcase">A propos</a></li>
                     <li><a href="#projets">Projets</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <li><a href="#cv">CV</a></li>
                 </ul>
-            </footer>
-        </div>
+            </div>
+        </footer>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
+        <script src="js/init.js"></script>
+        <script src="js/layout.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>

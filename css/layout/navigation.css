@@ -1,0 +1,26 @@
+/* Nav */
+
+nav {
+    position: fixed;
+    top: 0; right: 0;
+    width: 100%;
+}
+
+nav .inner {
+    width: 960px;
+    text-align: right;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+nav ul{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    float: right;
+
+}
+
+nav li {
+    float: left;
+}
