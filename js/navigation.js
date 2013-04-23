@@ -11,6 +11,7 @@
     function Plugin( element, options ) {
         this.element = element;
         this.nav = $(this.element).find("nav");
+        this.section = $(this.element).find("section");
 
         this.options = $.extend( {}, defaults, options );
 
@@ -25,6 +26,7 @@
         init: function() {
             var _this = this;
             _this.setNav();
+            _this.scrollPosition();
 
         },
         setNav: function(el, options) {
@@ -32,6 +34,20 @@
                 cloneNav = this.nav.clone(),
                 secondNav = cloneNav.attr("id", "secondNav")
             $(this.element).prepend(secondNav);
+        },
+        scrollPosition: function (){
+            var navLink = $("body").find("nav a"),
+                _this = this;
+            navLink.bind("click", function (e){
+                e.preventDefault();
+                var target = e.target,
+                    sectionTarget = $($(target).attr('href'));
+
+
+                $('html').animate({
+                    scrollTop:sectionTarget.position().top
+                }, 600,"easeOutQuad");
+            });
         }
     };
 
