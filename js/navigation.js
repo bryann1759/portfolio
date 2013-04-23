@@ -2,7 +2,7 @@
 
 
     // Create the defaults once
-    var pluginName = "sectionHeight",
+    var pluginName = "navigation",
         defaults = {
             propertyName: "value"
         };
@@ -10,6 +10,7 @@
     // The actual plugin constructor
     function Plugin( element, options ) {
         this.element = element;
+        this.nav = $(this.element).find("nav");
 
         this.options = $.extend( {}, defaults, options );
 
@@ -23,19 +24,14 @@
 
         init: function() {
             var _this = this;
-            _this.setHeightSection();
-            $(window).resize(function(){
-                _this.setHeightSection()
-            });
+            _this.setNav();
 
         },
-        setHeightSection: function(el, options) {
-            $(this.element).css("height", "");
-            var heightSection = $(this.element).height(),
-                heightWindow = $(window).height();
-            if(heightSection < heightWindow) {
-                $(this.element).css("height", heightWindow);
-            }
+        setNav: function(el, options) {
+            var _this = this,
+                cloneNav = this.nav.clone(),
+                secondNav = cloneNav.attr("id", "secondNav")
+            $(this.element).prepend(secondNav);
         }
     };
 

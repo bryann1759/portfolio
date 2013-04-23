@@ -1,4 +1,4 @@
 $(document).ready(function(){
-    $('section').defaultPluginName({
-    });
+    $('section').sectionHeight({});
+    $('#main').navigation({});
 });
