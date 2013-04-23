@@ -46,7 +46,11 @@
 
                 $('html').animate({
                     scrollTop:sectionTarget.position().top
-                }, 600,"easeOutQuad");
+                }, {
+                    duration: 600,
+                    easing: "easeOutQuad",
+                    queue: false
+                });
             });
         }
     };
