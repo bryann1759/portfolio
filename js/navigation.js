@@ -39,7 +39,6 @@
             var navLink = $("body").find("nav a"),
                 _this = this;
             navLink.bind("click", function (e){
-                e.preventDefault();
                 var target = e.target,
                     sectionTarget = $($(target).attr('href'));
 
