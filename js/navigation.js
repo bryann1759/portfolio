@@ -44,13 +44,9 @@
                     sectionTarget = $($(target).attr('href'));
 
 
-                $('html').animate({
+                $('html,body').animate({
                     scrollTop:sectionTarget.position().top
-                }, {
-                    duration: 600,
-                    easing: "easeOutQuad",
-                    queue: false
-                });
+                }, 500);
             });
         }
     };
