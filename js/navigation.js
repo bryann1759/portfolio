@@ -11,7 +11,8 @@
     function Plugin( element, options ) {
         this.element = element;
         this.nav = $(this.element).find("nav");
-        this.section = $(this.element).find("section");
+        this.$sections = $(this.element).find("section");
+        this.sectionsInfo = {};
 
         this.options = $.extend( {}, defaults, options );
 
@@ -27,6 +28,8 @@
             var _this = this;
             _this.setNav();
             _this.scrollPosition();
+            _this.setUrl();
+            _this.setEvents();
 
         },
         setNav: function(el, options) {
@@ -46,6 +49,48 @@
                 $('html,body').animate({
                     scrollTop:sectionTarget.position().top
                 }, 500);
+            });
+        },
+        setUrl: function (){
+            var _this = this;
+
+
+            _this.$sections.each(function(index, el){
+
+                var id = $(el).attr("id");
+                var data = {
+                    top : $(el).position().top,
+                    id : id
+                }
+
+
+                _this.sectionsInfo[id] = data;
+            })
+
+        },
+
+        setEvents: function () {
+            var _this = this;
+
+            $(window).bind("statechange",function(e){
+            });
+
+
+            $(window).scroll(function(){
+                var top = $(window).scrollTop();
+
+                $.each(_this.sectionsInfo, function(index, value){
+                    if(top >= value.top) {
+                        if(history.replaceState){
+                            history.replaceState({page:value.id}, value.id, '#'+ value.id)
+                        }
+
+                        else {
+                            window.location.hash = '!' + value.id
+                        }
+
+                    }
+                });
             });
         }
     };

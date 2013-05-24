@@ -1,0 +1,43 @@
+#carousel {
+    padding: 0 80px;
+    position: relative;
+}
+
+#carousel .carouselWrapper{
+    overflow: hidden;
+    position: relative;
+}
+
+#carousel  ul {
+    overflow: hidden;
+    margin: 0; padding: 0;
+
+}
+
+#carousel li {
+    float: left;
+    list-style: none;
+}
+
+#carousel li img {
+    width: 100%;
+}
+
+#carousel .prev,
+#carousel .next {
+    position: absolute;
+    top: 40%;
+    width: 62px;
+    height: 62px;
+    background: url("../skin/carousel/btn.png") no-repeat;
+}
+
+#carousel .prev {
+    left: 10px;
+    background-position: top left;
+}
+
+#carousel .next {
+    right: 10px;
+    background-position: top right;
+}
