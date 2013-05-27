@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $('section').sectionHeight({});
     $('#carousel').carousel({});
+    $('section').sectionHeight({});
     $('#main').navigation({});
 });

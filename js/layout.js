@@ -33,6 +33,7 @@
             $(this.element).css("height", "");
             var heightSection = $(this.element).height(),
                 heightWindow = $(window).height();
+
             if(heightSection < heightWindow) {
                 $(this.element).css("height", heightWindow);
             }
