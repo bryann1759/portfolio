@@ -1,4 +1,5 @@
-;(function ( $, window, document, undefined ) {
+;
+(function ($, window, document, undefined) {
 
 
     // Create the defaults once
@@ -8,13 +9,13 @@
         };
 
     // The actual plugin constructor
-    function Plugin( element, options ) {
+    function Plugin(element, options) {
         this.element = element;
         this.nav = $(this.element).find("nav");
         this.$sections = $(this.element).find("section");
-        this.sectionsInfo = {};
+        this.sectionsInfo = [];
 
-        this.options = $.extend( {}, defaults, options );
+        this.options = $.extend({}, defaults, options);
 
         this._defaults = defaults;
         this._name = pluginName;
@@ -24,7 +25,7 @@
 
     Plugin.prototype = {
 
-        init: function() {
+        init: function () {
             var _this = this;
             _this.setNav();
             _this.scrollPosition();
@@ -32,75 +33,73 @@
             _this.setEvents();
 
         },
-        setNav: function(el, options) {
+        setNav: function (el, options) {
             var _this = this,
                 cloneNav = this.nav.clone(),
                 secondNav = cloneNav.attr("id", "secondNav")
             $(this.element).prepend(secondNav);
         },
-        scrollPosition: function (){
+        scrollPosition: function () {
             var navLink = $("body").find("nav a"),
                 _this = this;
-            navLink.bind("click", function (e){
+            navLink.bind("click", function (e) {
                 var target = e.target,
                     sectionTarget = $($(target).attr('href'));
 
 
                 $('html,body').animate({
-                    scrollTop:sectionTarget.position().top
+                    scrollTop: sectionTarget.position().top
                 }, 500);
             });
         },
-        setUrl: function (){
+        setUrl: function () {
             var _this = this;
 
 
-            _this.$sections.each(function(index, el){
-
+            _this.$sections.each(function (index, el) {
                 var id = $(el).attr("id");
                 var data = {
-                    top : $(el).position().top,
-                    id : id
+                    top: $(el).position().top,
+                    id: id
                 }
-
-
-                _this.sectionsInfo[id] = data;
+                _this.sectionsInfo.push(data);
             })
 
         },
 
         setEvents: function () {
             var _this = this;
+            $(window).scroll(function () {
 
-            $(window).bind("statechange",function(e){
-            });
-
-
-            $(window).scroll(function(){
                 var top = $(window).scrollTop();
 
-                $.each(_this.sectionsInfo, function(index, value){
-                    if(top >= value.top) {
-                        if(history.replaceState){
-                            history.replaceState({page:value.id}, value.id, '#'+ value.id)
-                        }
+                for (var i = 0, l = _this.sectionsInfo.length; i < l; i++) {
+                    var obj = _this.sectionsInfo[i];
+                    var diff = top - obj.top;
+                    if (diff < 0 ) break;
 
-                        else {
-                            window.location.hash = '!' + value.id
-                        }
+                }
 
+                if (_this.sectionsInfo[i - 1] != undefined) {
+
+                    if (history.replaceState) {
+                        history.replaceState({page: _this.sectionsInfo[i - 1].id}, _this.sectionsInfo[i - 1].id, '#' + _this.sectionsInfo[i - 1].id)
                     }
-                });
+
+                    else {
+                        window.location.hash = '!' + _this.sectionsInfo[i - 1].id
+                    }
+                }
             });
         }
     };
 
-    $.fn[pluginName] = function ( options ) {
+    $.fn[pluginName] = function (options) {
         return this.each(function () {
             if (!$.data(this, "plugin_" + pluginName)) {
-                $.data(this, "plugin_" + pluginName, new Plugin( this, options ));
+                $.data(this, "plugin_" + pluginName, new Plugin(this, options));
             }
         });
     };
 
-})( jQuery, window, document );
+})(jQuery, window, document);

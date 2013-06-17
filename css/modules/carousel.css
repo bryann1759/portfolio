@@ -6,6 +6,7 @@
 #carousel .carouselWrapper{
     overflow: hidden;
     position: relative;
+    height: 585px;
 }
 
 #carousel  ul {
