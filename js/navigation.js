@@ -80,12 +80,11 @@
 
                 }
 
-                if (_this.sectionsInfo[i - 1] != undefined) {
+                if (_this.sectionsInfo[i - 1]) {
 
                     if (history.replaceState) {
                         history.replaceState({page: _this.sectionsInfo[i - 1].id}, _this.sectionsInfo[i - 1].id, '#' + _this.sectionsInfo[i - 1].id)
                     }
-
                     else {
                         window.location.hash = '!' + _this.sectionsInfo[i - 1].id
                     }
