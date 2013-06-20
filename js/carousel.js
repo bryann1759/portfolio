@@ -74,6 +74,15 @@
             }, {
                 duration: 500,
                 done: function(){
+
+
+                    if(_this.options.infinity) {
+
+                        _this.lis.filter(":first").before(_this.lis.filter(":last").clone().addClass("cloned"))
+                        _this.lis.filter(":last").before(_this.lis.filter(":first").clone().addClass("cloned"))
+                    }
+
+
                     _this.lis.each(function(index, el){
                         var el = $(el);
                         if (-(el.position().left) == _this.ul.position().left) {
@@ -82,10 +91,14 @@
                         }
 
                         if(el.hasClass("current") && el.position().left == 0) {
+                            _this.lis.eq(_this.lis.length-1).prependTo(_this.ul);
+                            console.log("dernier li",_this.lis.eq(_this.lis.length-1))
                             el.addClass("first")
                         } else {el.removeClass("first")}
 
                         if (el.hasClass("current") && el.position().left == (_this.ul.width() - el.width())){
+                            _this.lis.eq(0).appendTo(_this.ul);
+                            console.log("premier li",_this.lis.eq(0))
                             el.addClass("last")
                         } else{el.removeClass("last")}
 
