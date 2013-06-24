@@ -19,7 +19,7 @@
         this.btnPrev = '<a class="prev" href="#"></a>';
         this.btnNext = '<a class="next" href="#"></a>';
         this.firstItem = this.lis.eq(0);
-        this.lastItem = this.lis.eq(this.lis.length-1);
+        this.lastItem = this.lis.eq(this.lis.length - 1);
 
         this.options = $.extend({}, defaults, options);
 
@@ -34,7 +34,7 @@
 
         init: function () {
             this.setCarousel();
-            if(this.options.infinity) this.infinite();
+            if (this.options.infinity) this.infinite();
             this.setEvent();
 
         },
@@ -49,8 +49,11 @@
                 left: 0,
                 top: 0
             });
+            if (this.options.infinity) {
+
+            }
             this.element.prepend(this.btnNext, this.btnPrev);
-            _this.lis.each(function(index, el){
+            _this.lis.each(function (index, el) {
                 var el = $(el);
                 if (-(el.position().left) == _this.ul.position().left) {
                     _this.lis.removeClass("current");
@@ -64,6 +67,20 @@
             var _this = this;
 
 
+            _this.lis.filter(":first").before(_this.lis.filter(":last").clone().addClass("cloned"))
+            _this.lis.filter(":last").before(_this.lis.filter(":first").clone().addClass("cloned"))
+            1
+
+            _this.lis.each(function (index, el) {
+                var el = $(el);
+                if (-(el.position().left) == _this.ul.position().left) {
+                    _this.lis.removeClass("current");
+                    $(el).addClass("current");
+                }
+
+            });
+
+
         },
 
         move: function (newPosition) {
@@ -73,34 +90,27 @@
                 left: _this.position
             }, {
                 duration: 500,
-                done: function(){
-
-
-                    if(_this.options.infinity) {
-
-                        _this.lis.filter(":first").before(_this.lis.filter(":last").clone().addClass("cloned"))
-                        _this.lis.filter(":last").before(_this.lis.filter(":first").clone().addClass("cloned"))
-                    }
-
-
-                    _this.lis.each(function(index, el){
+                done: function () {
+                    _this.lis.each(function (index, el) {
                         var el = $(el);
                         if (-(el.position().left) == _this.ul.position().left) {
                             _this.lis.removeClass("current");
                             $(el).addClass("current");
                         }
 
-                        if(el.hasClass("current") && el.position().left == 0) {
-                            _this.lis.eq(_this.lis.length-1).prependTo(_this.ul);
-                            console.log("dernier li",_this.lis.eq(_this.lis.length-1))
-                            el.addClass("first")
-                        } else {el.removeClass("first")}
+                        /*if (el.hasClass("current") && el.position().left == 0) {
+                         _this.lis.eq(_this.lis.length - 1).prependTo(_this.ul);
+                         el.addClass("first")
+                         } else {
+                         el.removeClass("first")
+                         }
 
-                        if (el.hasClass("current") && el.position().left == (_this.ul.width() - el.width())){
-                            _this.lis.eq(0).appendTo(_this.ul);
-                            console.log("premier li",_this.lis.eq(0))
-                            el.addClass("last")
-                        } else{el.removeClass("last")}
+                         if (el.hasClass("current") && el.position().left == (_this.ul.width() - el.width())) {
+                         _this.lis.eq(0).appendTo(_this.ul);
+                         el.addClass("last")
+                         } else {
+                         el.removeClass("last")
+                         }*/
 
                     });
                 }
@@ -111,7 +121,6 @@
             var _this = this,
                 prev = this.element.find(".prev"),
                 next = this.element.find(".next");
-
 
 
             prev.bind("click", function (e) {

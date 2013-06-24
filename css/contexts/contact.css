@@ -1,0 +1,63 @@
+#contact {
+    background: #2B373C;
+    color: #FFF;
+}
+
+#contact form {
+    overflow: hidden;
+}
+
+#contact .column {
+    width: 50%;
+    float: left;
+    margin-bottom: 20px;
+}
+
+#contact .column div {
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+#contact input,
+#contact label {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#contact label {
+    width: 20%;
+    margin-bottom: 10px;
+}
+
+#contact .column label {
+    margin-bottom: 0;
+}
+
+#contact input {
+    width: 70%;
+    height: 40px;
+    border: none;
+    -webkit-border-radius: 3px;
+    -o-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+#contact textarea {
+    width: 95%;
+    height: 80px;
+}
+
+#contact button {
+    float: right;
+    margin-top: 20px;
+    margin-right: 42px;
+    border: none;
+    background: #FFF;
+    padding: 3px 20px 5px;
+    font-weight: bold;
+    -webkit-border-radius: 3px;
+    -o-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}

@@ -1,36 +1,41 @@
-@charset "UTF-8";
+@font-face {
+    font-family: 'existencestencil_light';
+    src: url('fonts/existence-stencillight-webfont.eot');
+    src: url('fonts/existence-stencillight-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/existence-stencillight-webfont.woff') format('woff'),
+         url('fonts/existence-stencillight-webfont.ttf') format('truetype'),
+         url('fonts/existence-stencillight-webfont.svg#existencestencil_light') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
 
 @font-face {
-  font-family: "untitled-font-1";
-  src:url("fonts/untitled-font-1.eot");
-  src:url("fonts/untitled-font-1.eot?#iefix") format("embedded-opentype"),
-    url("fonts/untitled-font-1.ttf") format("truetype"),
-    url("fonts/untitled-font-1.svg#untitled-font-1") format("svg"),
-    url("fonts/untitled-font-1.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'existenceunicase_light';
+    src: url('fonts/existence-unicaselight-webfont.eot');
+    src: url('fonts/existence-unicaselight-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/existence-unicaselight-webfont.woff') format('woff'),
+         url('fonts/existence-unicaselight-webfont.ttf') format('truetype'),
+         url('fonts/existence-unicaselight-webfont.svg#existenceunicase_light') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
 }
 
-[data-icon]:before {
-  font-family: "untitled-font-1";
-  content: attr(data-icon);
-  font-style: normal;
-  font-weight: normal;
-  speak: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-}
 
-[class^="icon-"]:before,
-[class*=" icon-"]:before {
-  font-family: "untitled-font-1";
-  font-style: normal;
-  font-weight: normal;
-  speak: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-}
 
-.icon-fleche1:before {
-   content: "g";
+
+@font-face {
+    font-family: 'existencelight';
+    src: url('fonts/existence-light-webfont.eot');
+    src: url('fonts/existence-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/existence-light-webfont.woff') format('woff'),
+         url('fonts/existence-light-webfont.ttf') format('truetype'),
+         url('fonts/existence-light-webfont.svg#existencelight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
 }
