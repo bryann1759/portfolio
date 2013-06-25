@@ -1,0 +1,51 @@
+form {
+    overflow: hidden;
+}
+
+form input,
+form label {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+form label {
+    width: 20%;
+    margin-bottom: 10px;
+}
+
+form label {
+    margin-bottom: 0;
+}
+
+form input {
+    width: 70%;
+    height: 40px;
+    border: 1px solid transparent;
+    -webkit-border-radius: 3px;
+    -o-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+form textarea {
+    width: 95%;
+    height: 80px;
+}
+
+form button {
+    float: right;
+    margin-top: 20px;
+    margin-right: 42px;
+    border: none;
+    background: #FFF;
+    padding: 3px 20px 5px;
+    font-weight: bold;
+    -webkit-border-radius: 3px;
+    -o-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+form .error {
+    border: 1px solid red;
+}

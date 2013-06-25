@@ -12,16 +12,29 @@
 #carousel  ul {
     overflow: hidden;
     margin: 0; padding: 0;
+    height: 100%;
 
 }
 
 #carousel li {
     float: left;
     list-style: none;
+    height: 100%;
 }
 
-#carousel li img {
-    width: 100%;
+#carousel li .media {
+    width: 50%;
+    float: left;
+    text-align: center;
+}
+
+#carousel li .media img{
+    width: 80%;
+}
+
+#carousel li p {
+    width: 50%;
+    overflow: hidden;
 }
 
 #carousel .prev,
