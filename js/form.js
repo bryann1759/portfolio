@@ -15,6 +15,7 @@
         this.inputs = this.element.find("input");
         this.textarea = this.element.find("textarea");
         this.btnValid = this.element.find("button");
+        this.checkForm = true;
 
 
         this.options = $.extend({}, defaults, options);
@@ -31,6 +32,12 @@
         init: function () {
             var _this = this;
             this.inputs.blur(function(){_this.validText(this)})
+            this.element.submit(function(){
+                _this.validText(_this.inputs);
+                if(!this.checkForm) {
+                    return false;
+                }
+            })
 
         },
 
@@ -39,8 +46,12 @@
             var value = element.val();
 
             if(/\b[A-Z0-9.]/gi.test(value)){
-                console.log("test d")
-            } else {element.addClass("error")}
+                this.checkForm = true;
+                element.removeClass("error");
+            } else {
+                this.checkForm = false;
+                element.addClass("error")
+            }
         }
 
     };
